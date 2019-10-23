@@ -14,8 +14,9 @@ store.subscribe(() => {
 });
 
 store.dispatch(addNote({ id: 1, title: 'my title 1' }));
-store.dispatch(editNote(1, { title: 'new title 111' }));
 store.dispatch(editNote(1, { title: 'loremipsum' }));
+store.dispatch(editNote(1, { description: 'some description' }));
+store.dispatch(editNote(1, { priority: 1, status: 1 }));
 store.dispatch(removeNote(1));
 
 // render app

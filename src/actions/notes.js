@@ -1,13 +1,20 @@
 import uuid from 'uuid';
 
 // ADD_NOTE
-export const addNote = ({ id = uuid(), title = '' } = {}) => ({
-  type: 'ADD_NOTE',
-  note: {
-    id,
-    title
-  }
-});
+export const addNote = (fields = {}) => {
+  const {
+    id = uuid(),
+    title,
+    description = '',
+    priority = 0,
+    status = 0
+  } = fields;
+
+  return {
+    type: 'ADD_NOTE',
+    note: { id, title, description, priority, status }
+  };
+};
 
 // EDIT_NOTE
 export const editNote = (id, updates) => ({
