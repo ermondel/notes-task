@@ -1,15 +1,11 @@
 import React from 'react';
+import { Card } from 'semantic-ui-react';
 
 const NoteListItem = props => (
-  <div className='NoteListItem'>
-    <ul>
-      <li>id: {props.id}</li>
-      <li>title: {props.title}</li>
-      <li>description: {props.description}</li>
-      <li>priority: {props.priority}</li>
-      <li>status: {props.status}</li>
-    </ul>
-  </div>
+  <Card>
+    <Card.Content header={props.title} style={{ flexGrow: 0 }} />
+    <Card.Content description={props.description} />
+  </Card>
 );
 
 export default NoteListItem;
