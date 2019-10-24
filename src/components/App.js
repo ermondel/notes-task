@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addNote } from '../actions/notes';
 import NoteList from './NotesList';
 import NoteForm from './NoteForm';
 import { Container, Divider, Header, Button, Icon } from 'semantic-ui-react';
 
 class App extends Component {
   state = {
-    open: false
+    open: false,
+    note: null
   };
 
-  onModalOpen = () => {
+  modalOpen = () => {
     this.setState({ open: true });
   };
 
-  onModalClose = () => {
+  modalClose = () => {
     this.setState({ open: false });
+  };
+
+  saveNote = note => {
+    this.props.addNote(note);
+    this.setState({
+      open: false,
+      note: null
+    });
   };
 
   render() {
@@ -26,7 +37,7 @@ class App extends Component {
           <Button
             icon
             labelPosition='right'
-            onClick={this.onModalOpen}
+            onClick={this.modalOpen}
             color='blue'
           >
             Add note
@@ -35,10 +46,22 @@ class App extends Component {
         </Container>
         <Divider />
         <NoteList />
-        <NoteForm open={this.state.open} onClose={this.onModalClose} />
+        <NoteForm
+          open={this.state.open}
+          modalClose={this.modalClose}
+          saveNote={this.saveNote}
+          note={this.state.note}
+        />
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  addNote: note => dispatch(addNote(note))
+});
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(App);

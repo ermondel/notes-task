@@ -11,10 +11,10 @@ import notes from './tests/fixtures/notes';
 const store = configureStore();
 
 // redux store test
-store.dispatch(addNote(notes[0]));
-store.dispatch(addNote(notes[1]));
-store.dispatch(addNote(notes[2]));
-store.dispatch(addNote(notes[3]));
+// store.dispatch(addNote(notes[0]));
+// store.dispatch(addNote(notes[1]));
+// store.dispatch(addNote(notes[2]));
+// store.dispatch(addNote(notes[3]));
 
 // render app
 ReactDOM.render(

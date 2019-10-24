@@ -6,7 +6,7 @@ export const addNote = (fields = {}) => {
     id = uuid(),
     title,
     description = '',
-    priority = 0,
+    priority = 'normal',
     status = 0
   } = fields;
 

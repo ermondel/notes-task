@@ -13,19 +13,27 @@ class NoteForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const { title, description, priority } = this.state;
+    this.props.saveNote({
+      title: this.state.title,
+      description: this.state.description,
+      priority: this.state.priority
+    });
 
-    console.log('title', title);
-    console.log('description', description);
-    console.log('priority', priority);
+    this.setState({
+      title: '',
+      description: '',
+      priority: 'high'
+    });
   };
 
   render() {
-    const { title, description, priority } = this.state;
+    const { title, description, priority } = this.props.note
+      ? this.props.note
+      : this.state;
 
     return (
       <div>
-        <Modal size={'mini'} open={this.props.open} onClose={this.onModalClose}>
+        <Modal size={'mini'} open={this.props.open}>
           <Modal.Header>Add new note</Modal.Header>
           <Modal.Content>
             <Form onSubmit={this.handleSubmit}>
@@ -58,7 +66,7 @@ class NoteForm extends Component {
             </Form>
           </Modal.Content>
           <Modal.Actions>
-            <Button negative onClick={this.props.onClose} content='Cancel' />
+            <Button negative onClick={this.props.modalClose} content='Cancel' />
             <Button
               positive
               icon='checkmark'
