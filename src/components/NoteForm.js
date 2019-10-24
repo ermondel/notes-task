@@ -1,81 +1,84 @@
 import React, { Component } from 'react';
+import { Form, Button, Modal } from 'semantic-ui-react';
 
 class NoteForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      title: '',
-      description: '',
-      priority: 0
-    };
-
-    if (props.note) this.state = { ...this.state, ...props.note };
-  }
-
-  onTitleChange = event => {
-    const title = event.target.value;
-    this.setState({ title });
+  state = {
+    title: '',
+    description: '',
+    priority: 'high',
+    open: false
   };
 
-  onDescriptionChange = event => {
-    const description = event.target.value;
-    this.setState({ description });
-  };
+  handleChange = (event, { name, value }) => this.setState({ [name]: value });
 
-  onPriorityChange = event => {
-    const priority = event.target.value;
-    console.log('onPriorityChange', priority);
-    this.setState({ priority });
-  };
-
-  onSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
-    console.log('onSubmit');
+
+    const { title, description, priority } = this.state;
+
+    console.log('title', title);
+    console.log('description', description);
+    console.log('priority', priority);
   };
 
-  onFormFocus = () => {
-    console.log('onFormFocus');
+  onModalOpen = () => {
+    this.setState({ open: true });
+  };
+
+  onModalClose = () => {
+    this.setState({ open: false });
   };
 
   render() {
+    const { title, description, priority } = this.state;
+
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
-          <label>
-            Title
-            <input
-              type='text'
-              placeholder='Title'
-              value={this.state.title}
-              onChange={this.onTitleChange}
-              onFocus={this.onFormFocus}
+        <Button onClick={this.onModalOpen}>Create</Button>
+
+        <Modal size={'mini'} open={this.state.open} onClose={this.onModalClose}>
+          <Modal.Header>Add new note</Modal.Header>
+          <Modal.Content>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Input
+                label='Title'
+                placeholder='Title'
+                name='title'
+                value={title}
+                onChange={this.handleChange}
+              />
+              <Form.TextArea
+                label='Description'
+                placeholder='Description'
+                name='description'
+                value={description}
+                onChange={this.handleChange}
+              />
+              <Form.Select
+                label='Priority'
+                placeholder='Priority'
+                name='priority'
+                value={priority}
+                onChange={this.handleChange}
+                options={[
+                  { text: 'High', value: 'high' },
+                  { text: 'Normal', value: 'normal' },
+                  { text: 'Low', value: 'low' }
+                ]}
+              />
+            </Form>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button negative onClick={this.onModalClose} content='Cancel' />
+            <Button
+              positive
+              icon='checkmark'
+              labelPosition='right'
+              content='Save'
+              onClick={this.handleSubmit}
             />
-          </label>
-          <label>
-            Description
-            <input
-              type='text'
-              placeholder='Description'
-              value={this.state.description}
-              onChange={this.onDescriptionChange}
-              onFocus={this.onFormFocus}
-            />
-          </label>
-          <label>
-            Priority
-            <select
-              value={this.state.priority}
-              onChange={this.onPriorityChange}
-            >
-              <option value='0'>High</option>
-              <option value='1'>Normal</option>
-              <option value='2'>Low</option>
-            </select>
-          </label>
-        </form>
-        <button>Cancel</button>
-        <button onClick={this.onSubmit}>Save</button>
+          </Modal.Actions>
+        </Modal>
       </div>
     );
   }
