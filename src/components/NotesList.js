@@ -1,14 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NoteListItem from './NoteListItem';
-import { Container, Card, Divider, Header } from 'semantic-ui-react';
+import { Container, Card } from 'semantic-ui-react';
 
 const NotesList = props => (
-  <div style={{ marginTop: '10px' }}>
-    <Container textAlign='left'>
-      <Header as='h1'>TODOList</Header>
-    </Container>
-    <Divider />
+  <div>
     <Container>
       <Card.Group>
         {props.notes.length ? (
