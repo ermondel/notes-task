@@ -1,6 +1,5 @@
 import uuid from 'uuid';
 
-// ADD_NOTE
 export const addNote = (fields = {}) => {
   const {
     id = uuid(),
@@ -12,19 +11,30 @@ export const addNote = (fields = {}) => {
 
   return {
     type: 'ADD_NOTE',
-    note: { id, title, description, priority, status }
+    note: { id, title, description, priority, status },
+    status: 'NOTE_ADDED'
   };
 };
 
-// EDIT_NOTE
 export const editNote = (id, updates) => ({
   type: 'EDIT_NOTE',
   id,
-  updates
+  updates,
+  status: 'NOTE_UPDATED'
 });
 
-// REMOVE_NOTE
 export const removeNote = id => ({
   type: 'REMOVE_NOTE',
-  id
+  id,
+  status: 'NOTE_REMOVED'
+});
+
+export const createNote = () => ({
+  type: 'CREATE_NOTE',
+  status: 'CREATE'
+});
+
+export const closeNote = () => ({
+  type: 'CLOSE_NOTE',
+  status: 'CLOSED'
 });

@@ -20,7 +20,7 @@ const NotesList = props => (
 );
 
 const mapStateToProps = state => ({
-  notes: state.notes
+  notes: state.notes.list
 });
 
 export default connect(mapStateToProps)(NotesList);
