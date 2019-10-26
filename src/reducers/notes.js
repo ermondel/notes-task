@@ -1,6 +1,7 @@
 const notesReducerDefaultState = {
   list: [],
-  status: 'NONE'
+  status: 'NONE',
+  lastID: 0
 };
 
 export default (state = notesReducerDefaultState, action) => {

@@ -3,21 +3,18 @@ import { connect } from 'react-redux';
 import NoteListItem from './NoteListItem';
 import { Container, Card } from 'semantic-ui-react';
 
-const NotesList = props => (
-  <div>
-    <Container>
-      <Card.Group>
-        {props.notes.length ? (
-          props.notes.map(note => {
-            return <NoteListItem key={note.id} {...note} />;
-          })
-        ) : (
-          <p>No notes</p>
-        )}
-      </Card.Group>
-    </Container>
-  </div>
-);
+const NotesList = props =>
+  props.notes.length ? (
+    <div className='NotesList'>
+      <Container>
+        <Card.Group>
+          {props.notes.map(note => (
+            <NoteListItem key={note.id} {...note} />
+          ))}
+        </Card.Group>
+      </Container>
+    </div>
+  ) : null;
 
 const mapStateToProps = state => ({
   notes: state.notes.list

@@ -1,11 +1,15 @@
 import React from 'react';
-import { Modal, Button } from 'semantic-ui-react';
+import { Modal, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { closeNote } from '../actions/notes';
 
 const ModalInfo = props => (
   <Modal size={'mini'} open={true}>
-    <Modal.Header>{props.header}</Modal.Header>
+    <Modal.Header>
+      <Icon color='green' name='check' />
+      {props.header}
+    </Modal.Header>
+    <Modal.Content>{props.content}</Modal.Content>
     <Modal.Actions>
       <Button onClick={props.modalClose}>Close</Button>
     </Modal.Actions>
