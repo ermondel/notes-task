@@ -9,7 +9,8 @@ export default (state = notesReducerDefaultState, action) => {
     case 'ADD_NOTE':
       return {
         list: [...state.list, action.note],
-        status: action.status
+        status: action.status,
+        lastID: action.note.id
       };
 
     case 'EDIT_NOTE':
@@ -21,24 +22,28 @@ export default (state = notesReducerDefaultState, action) => {
             return note;
           }
         }),
-        status: action.status
+        status: action.status,
+        lastID: action.id
       };
 
     case 'REMOVE_NOTE':
       return {
         list: state.list.filter(({ id }) => id !== action.id),
-        status: action.status
+        status: action.status,
+        lastID: action.id
       };
 
     case 'CREATE_NOTE':
       return {
         list: state.list,
+        lastID: state.lastID,
         status: action.status
       };
 
     case 'CLOSE_NOTE':
       return {
         list: state.list,
+        lastID: state.lastID,
         status: action.status
       };
 

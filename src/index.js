@@ -25,8 +25,8 @@ const store = configureStore();
 // store.dispatch(addNote(notes[1]));
 // store.dispatch(addNote(notes[2]));
 // store.dispatch(addNote(notes[3]));
-// store.dispatch(editNote(4, { title: 'new title' }));
-// store.dispatch(removeNote(4));
+// store.dispatch(editNote(2, { title: 'new title' }));
+// store.dispatch(removeNote(1));
 // store.dispatch(createNote());
 // store.dispatch(closeNote());
 
