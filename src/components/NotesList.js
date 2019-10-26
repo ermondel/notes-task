@@ -8,7 +8,7 @@ const NotesList = props =>
     <div className='NotesList'>
       <Container>
         <Card.Group>
-          {props.notes.map(note => (
+          {props.notes.reverse().map(note => (
             <NoteListItem key={note.id} {...note} />
           ))}
         </Card.Group>

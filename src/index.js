@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import configureStore from './store/configureStore';
 import 'semantic-ui-css/semantic.min.css';
+
 // import {
 //   addNote,
 //   editNote,
@@ -21,6 +22,9 @@ const store = configureStore();
 // });
 
 // redux store test
+// notes.forEach(note => {
+//   store.dispatch(addNote(note));
+// });
 // store.dispatch(addNote(notes[0]));
 // store.dispatch(addNote(notes[1]));
 // store.dispatch(addNote(notes[2]));
