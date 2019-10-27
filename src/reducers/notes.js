@@ -14,7 +14,7 @@ export default (state = notesReducerDefaultState, action) => {
         lastID: action.note.id
       };
 
-    case 'EDIT_NOTE':
+    case 'UPDATE_NOTE':
       return {
         list: state.list.map(note => {
           if (note.id === action.id) {
@@ -45,6 +45,13 @@ export default (state = notesReducerDefaultState, action) => {
       return {
         list: state.list,
         lastID: state.lastID,
+        status: action.status
+      };
+
+    case 'EDIT_NOTE':
+      return {
+        list: state.list,
+        lastID: action.id,
         status: action.status
       };
 

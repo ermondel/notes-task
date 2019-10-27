@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Modal, Button, Form } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { closeNote, addNote } from '../actions/notes';
 
 class ModalForm extends Component {
   state = {
@@ -32,28 +30,20 @@ class ModalForm extends Component {
 
     const { title, description, priority } = this.state;
 
-    title.trim().length <= 0
-      ? this.errorInform()
-      : this.saveNote(title, description, priority);
+    if (title.trim().length <= 0) {
+      this.setState({ titleError: true });
+    } else {
+      this.props.saveNote({ title, description, priority });
+
+      this.setState({
+        title: '',
+        description: '',
+        priority: 'normal',
+        getFromProps: true,
+        titleError: false
+      });
+    }
   };
-
-  errorInform() {
-    this.setState({
-      titleError: true
-    });
-  }
-
-  saveNote(title, description, priority) {
-    this.props.addNote({ title, description, priority });
-
-    this.setState({
-      title: '',
-      description: '',
-      priority: 'normal',
-      getFromProps: true,
-      titleError: false
-    });
-  }
 
   render() {
     const { title, description, priority, titleError } = this.state;
@@ -108,12 +98,4 @@ class ModalForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  modalClose: () => dispatch(closeNote()),
-  addNote: note => dispatch(addNote(note))
-});
-
-export default connect(
-  undefined,
-  mapDispatchToProps
-)(ModalForm);
+export default ModalForm;

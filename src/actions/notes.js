@@ -16,11 +16,17 @@ export const addNote = (fields = {}) => {
   };
 };
 
-export const editNote = (id, updates) => ({
-  type: 'EDIT_NOTE',
+export const updateNote = (id, updates) => ({
+  type: 'UPDATE_NOTE',
   id,
   updates,
   status: 'NOTE_UPDATED'
+});
+
+export const editNote = id => ({
+  type: 'EDIT_NOTE',
+  id,
+  status: 'EDIT'
 });
 
 export const removeNote = id => ({

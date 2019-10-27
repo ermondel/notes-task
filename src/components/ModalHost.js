@@ -2,9 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ModalForm from './ModalForm';
 import ModalInfo from './ModalInfo';
+import { closeNote, addNote, updateNote } from '../actions/notes';
 
 const ModalHost = props => {
-  if (props.status === 'CREATE') return <ModalForm header={'Add new note'} />;
+  if (props.status === 'CREATE')
+    return (
+      <ModalForm
+        header={'Add new note'}
+        saveNote={props.addNote}
+        modalClose={props.modalClose}
+      />
+    );
+
+  if (props.status === 'EDIT')
+    return (
+      <ModalForm
+        header={'Edit note'}
+        saveNote={note => props.updateNote(props.note.id, note)}
+        modalClose={props.modalClose}
+        note={props.note}
+      />
+    );
 
   if (props.status === 'NOTE_ADDED')
     return <ModalInfo header={'Note added'} content={props.note.title} />;
@@ -23,4 +41,13 @@ const mapStateToProps = state => ({
   note: state.notes.list.find(({ id }) => id === state.notes.lastID)
 });
 
-export default connect(mapStateToProps)(ModalHost);
+const mapDispatchToProps = dispatch => ({
+  modalClose: () => dispatch(closeNote()),
+  addNote: note => dispatch(addNote(note)),
+  updateNote: (id, note) => dispatch(updateNote(id, note))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalHost);
