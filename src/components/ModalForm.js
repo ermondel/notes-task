@@ -8,7 +8,8 @@ class ModalForm extends Component {
     title: '',
     description: '',
     priority: 'normal',
-    getFromProps: true
+    getFromProps: true,
+    titleError: false
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -19,23 +20,43 @@ class ModalForm extends Component {
 
   handleChange = (event, { name, value }) => this.setState({ [name]: value });
 
+  handleFocus = () => {
+    if (this.state.titleError)
+      this.setState({
+        titleError: false
+      });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
     const { title, description, priority } = this.state;
 
+    title.trim().length <= 0
+      ? this.errorInform()
+      : this.saveNote(title, description, priority);
+  };
+
+  errorInform() {
+    this.setState({
+      titleError: true
+    });
+  }
+
+  saveNote(title, description, priority) {
     this.props.addNote({ title, description, priority });
 
     this.setState({
       title: '',
       description: '',
       priority: 'normal',
-      getFromProps: true
+      getFromProps: true,
+      titleError: false
     });
-  };
+  }
 
   render() {
-    const { title, description, priority } = this.state;
+    const { title, description, priority, titleError } = this.state;
 
     return (
       <Modal size={'mini'} open={true}>
@@ -44,10 +65,12 @@ class ModalForm extends Component {
           <Form onSubmit={this.handleSubmit}>
             <Form.Input
               label='Title'
-              placeholder='Title'
+              placeholder={titleError ? 'Please enter title' : 'Title'}
               name='title'
               value={title}
               onChange={this.handleChange}
+              onFocus={this.handleFocus}
+              error={titleError}
             />
             <Form.TextArea
               label='Description'
