@@ -19,7 +19,7 @@ export default [
     id: 3,
     title: 'apply intership',
     description: 'send email',
-    priority: 'normal',
+    priority: 'low',
     status: 0
   },
   {
@@ -34,7 +34,7 @@ export default [
     id: 5,
     title: 'Title 5',
     description: 'Short description 5',
-    priority: 'normal',
+    priority: 'low',
     status: 0
   },
   {
@@ -50,21 +50,21 @@ export default [
     title: 'Title 7',
     description:
       'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?',
-    priority: 'normal',
+    priority: 'high',
     status: 0
   },
   {
     id: 8,
     title: 'Title 8',
     description: 'Short description 8',
-    priority: 'normal',
+    priority: 'low',
     status: 0
   },
   {
     id: 9,
     title: 'Title 9',
     description: 'Short description 9',
-    priority: 'normal',
+    priority: 'high',
     status: 0
   },
   {
@@ -79,7 +79,7 @@ export default [
     id: 11,
     title: 'Title 11',
     description: 'Short description 11',
-    priority: 'normal',
+    priority: 'high',
     status: 0
   },
   {
@@ -100,21 +100,21 @@ export default [
     id: 14,
     title: 'Title 14',
     description: 'Short description 14',
-    priority: 'normal',
+    priority: 'low',
     status: 0
   },
   {
     id: 15,
     title: 'Title 15',
     description: 'Short description 15',
-    priority: 'normal',
+    priority: 'high',
     status: 0
   },
   {
     id: 16,
     title: 'Title 16',
     description: 'Short description 16',
-    priority: 'normal',
+    priority: 'low',
     status: 0
   },
   {
@@ -129,14 +129,14 @@ export default [
     title: 'Title 18',
     description:
       'Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
-    priority: 'normal',
+    priority: 'low',
     status: 0
   },
   {
     id: 19,
     title: 'Title 19',
     description: 'Short description 19',
-    priority: 'normal',
+    priority: 'high',
     status: 0
   },
   {
@@ -144,7 +144,7 @@ export default [
     title: 'Title 20',
     description:
       'Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.',
-    priority: 'normal',
+    priority: 'low',
     status: 0
   }
 ];

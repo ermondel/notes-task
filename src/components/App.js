@@ -5,7 +5,7 @@ import ModalHost from './ModalHost';
 import { Divider } from 'semantic-ui-react';
 
 const App = () => (
-  <div className='App' style={{ marginTop: '10px' }}>
+  <div className='App'>
     <Headline />
     <Divider />
     <NoteList />
