@@ -11,36 +11,30 @@ export const addNote = (fields = {}) => {
 
   return {
     type: 'ADD_NOTE',
-    note: { id, title, description, priority, status },
-    status: 'NOTE_ADDED'
+    note: { id, title, description, priority, status }
   };
 };
 
 export const updateNote = (id, updates) => ({
   type: 'UPDATE_NOTE',
   id,
-  updates,
-  status: 'NOTE_UPDATED'
-});
-
-export const editNote = id => ({
-  type: 'EDIT_NOTE',
-  id,
-  status: 'EDIT'
+  updates
 });
 
 export const removeNote = id => ({
   type: 'REMOVE_NOTE',
-  id,
-  status: 'NOTE_REMOVED'
+  id
 });
 
 export const createNote = () => ({
-  type: 'CREATE_NOTE',
-  status: 'CREATE'
+  type: 'CREATE_NOTE'
+});
+
+export const editNote = id => ({
+  type: 'EDIT_NOTE',
+  id
 });
 
 export const closeNote = () => ({
-  type: 'CLOSE_NOTE',
-  status: 'CLOSED'
+  type: 'CLOSE_NOTE'
 });

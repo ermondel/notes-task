@@ -5,7 +5,7 @@ import { closeNote } from '../actions/notes';
 
 const ModalInfo = props => (
   <Modal size={'mini'} open={true}>
-    <Modal.Header>
+    <Modal.Header style={{ backgroundColor: 'green', color: 'white' }}>
       <Icon color='green' name='check' />
       {props.header}
     </Modal.Header>

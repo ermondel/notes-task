@@ -6,7 +6,7 @@ import { editNote } from '../actions/notes';
 const icons = {
   high: { icon: 'alarm', color: 'red' },
   normal: { icon: 'bookmark outline', color: 'blue' },
-  low: { icon: 'bookmark outline', color: undefined }
+  low: { icon: 'circle outline', color: undefined }
 };
 
 const NoteListItem = props => (
@@ -14,7 +14,12 @@ const NoteListItem = props => (
     <Card.Content header={props.title} style={{ flexGrow: 0 }} />
     <Card.Content description={props.description} />
     <Card.Content extra>
-      <Dropdown icon='ellipsis horizontal' direction='left' title='Menu'>
+      <Dropdown
+        icon='ellipsis horizontal'
+        direction='left'
+        title='Menu'
+        style={{ float: 'right' }}
+      >
         <Dropdown.Menu>
           <Dropdown.Item
             icon='check'
@@ -38,6 +43,7 @@ const NoteListItem = props => (
           color={icons[props.priority].color}
           name={icons[props.priority].icon}
           title={props.priority + ' priority'}
+          style={{ cursor: 'help' }}
         />
       </div>
     </Card.Content>

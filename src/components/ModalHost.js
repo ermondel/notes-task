@@ -5,22 +5,22 @@ import ModalInfo from './ModalInfo';
 import { closeNote, addNote, updateNote } from '../actions/notes';
 
 const ModalHost = props => {
-  if (props.status === 'CREATE')
+  if (props.status === 'CREATE_NOTE')
     return (
       <ModalForm
         header={'Add new note'}
-        saveNote={props.addNote}
         modalClose={props.modalClose}
+        saveNote={note => props.addNote(note)}
       />
     );
 
-  if (props.status === 'EDIT')
+  if (props.status === 'EDIT_NOTE')
     return (
       <ModalForm
         header={'Edit note'}
-        saveNote={note => props.updateNote(props.note.id, note)}
-        modalClose={props.modalClose}
         note={props.note}
+        modalClose={props.modalClose}
+        saveNote={note => props.updateNote(props.note.id, note)}
       />
     );
 
@@ -38,7 +38,7 @@ const ModalHost = props => {
 
 const mapStateToProps = state => ({
   status: state.notes.status,
-  note: state.notes.list.find(({ id }) => id === state.notes.lastID)
+  note: state.notes.note
 });
 
 const mapDispatchToProps = dispatch => ({
