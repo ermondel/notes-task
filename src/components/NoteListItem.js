@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Dropdown, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { editNote, removeNote } from '../actions/notes';
+import { editNote, removeNote, updateNote } from '../actions/notes';
 
 const icons = {
   high: { icon: 'alarm', color: 'red' },
@@ -24,7 +24,7 @@ const NoteListItem = props => (
           <Dropdown.Item
             icon='check'
             text='Mark as done'
-            onClick={() => console.log('check', props.id)}
+            onClick={() => props.updateNote(props.id, { status: 1 })}
           />
           <Dropdown.Item
             icon='edit'
@@ -52,7 +52,8 @@ const NoteListItem = props => (
 
 const mapDispatchToProps = dispatch => ({
   editNote: id => dispatch(editNote(id)),
-  removeNote: id => dispatch(removeNote(id))
+  removeNote: id => dispatch(removeNote(id)),
+  updateNote: (id, updates) => dispatch(updateNote(id, updates))
 });
 
 export default connect(
