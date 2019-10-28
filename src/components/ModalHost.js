@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ModalForm from './ModalForm';
-import ModalInfo from './ModalInfo';
 import { closeNote, addNote, updateNote } from '../actions/notes';
 
 const ModalHost = props => {
@@ -23,12 +22,6 @@ const ModalHost = props => {
         saveNote={note => props.updateNote(props.note.id, note)}
       />
     );
-
-  if (props.status === 'NOTE_ADDED')
-    return <ModalInfo header={'Note added'} content={props.note.title} />;
-
-  if (props.status === 'NOTE_UPDATED')
-    return <ModalInfo header={'Note updated'} content={props.note.title} />;
 
   return null;
 };
