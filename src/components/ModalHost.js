@@ -30,9 +30,6 @@ const ModalHost = props => {
   if (props.status === 'NOTE_UPDATED')
     return <ModalInfo header={'Note updated'} content={props.note.title} />;
 
-  if (props.status === 'NOTE_REMOVED')
-    return <ModalInfo header={'Note removed'} content={props.note.title} />;
-
   return null;
 };
 
