@@ -1,0 +1,7 @@
+.ui.cards > .noteDone > .content > .header {
+  text-decoration: line-through;
+  color: lightgrey;
+}
+.ui.cards > .noteDone > .content > .description {
+  color: Silver;
+}

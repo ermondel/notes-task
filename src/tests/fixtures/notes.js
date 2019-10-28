@@ -28,7 +28,7 @@ export default [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     priority: 'normal',
-    status: 0
+    status: 1
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ export default [
     description:
       'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.',
     priority: 'normal',
-    status: 0
+    status: 1
   },
   {
     id: 7,
@@ -58,7 +58,7 @@ export default [
     title: 'Title 8',
     description: 'Short description 8',
     priority: 'low',
-    status: 0
+    status: 1
   },
   {
     id: 9,
@@ -80,7 +80,7 @@ export default [
     title: 'Title 11',
     description: 'Short description 11',
     priority: 'high',
-    status: 0
+    status: 1
   },
   {
     id: 12,
@@ -108,7 +108,7 @@ export default [
     title: 'Title 15',
     description: 'Short description 15',
     priority: 'high',
-    status: 0
+    status: 1
   },
   {
     id: 16,
@@ -130,7 +130,7 @@ export default [
     description:
       'Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
     priority: 'low',
-    status: 0
+    status: 1
   },
   {
     id: 19,

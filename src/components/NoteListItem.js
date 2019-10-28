@@ -10,7 +10,7 @@ const icons = {
 };
 
 const NoteListItem = props => (
-  <Card>
+  <Card className={props.status ? 'noteDone' : 'noteOpen'}>
     <Card.Content header={props.title} style={{ flexGrow: 0 }} />
     <Card.Content description={props.description} />
     <Card.Content extra>

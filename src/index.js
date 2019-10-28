@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import configureStore from './store/configureStore';
 import 'semantic-ui-css/semantic.min.css';
+import './style/index.css';
 
 // import {
 //   addNote,
