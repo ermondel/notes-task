@@ -6,12 +6,13 @@ export const addNote = (fields = {}) => {
     title,
     description = '',
     priority = 'normal',
-    status = 0
+    status = 0,
+    date = Date.now()
   } = fields;
 
   return {
     type: 'ADD_NOTE',
-    note: { id, title, description, priority, status }
+    note: { id, title, description, priority, status, date }
   };
 };
 

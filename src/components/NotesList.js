@@ -17,7 +17,9 @@ const NotesList = props =>
   ) : null;
 
 const mapStateToProps = state => ({
-  notes: state.notes.list
+  notes: state.notes.list.sort((a, b) =>
+    a.date < b.date ? 1 : a.date > b.date ? -1 : 0
+  )
 });
 
 export default connect(mapStateToProps)(NotesList);
