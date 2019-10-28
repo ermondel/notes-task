@@ -6,13 +6,7 @@ import configureStore from './store/configureStore';
 import 'semantic-ui-css/semantic.min.css';
 import './style/index.css';
 
-// import {
-//   addNote,
-//   editNote,
-//   removeNote,
-//   createNote,
-//   closeNote
-// } from './actions/notes';
+// import { addNote } from './actions/notes';
 // import notes from './tests/fixtures/notes';
 
 // redux store
@@ -26,14 +20,6 @@ const store = configureStore();
 // notes.forEach(note => {
 //   store.dispatch(addNote(note));
 // });
-// store.dispatch(addNote(notes[0]));
-// store.dispatch(addNote(notes[1]));
-// store.dispatch(addNote(notes[2]));
-// store.dispatch(addNote(notes[3]));
-// store.dispatch(editNote(2, { title: 'new title' }));
-// store.dispatch(removeNote(1));
-// store.dispatch(createNote());
-// store.dispatch(closeNote());
 
 // render app
 ReactDOM.render(

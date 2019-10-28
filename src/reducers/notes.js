@@ -15,19 +15,21 @@ export default (state = notesReducerDefaultState, action) => {
       };
 
     case 'UPDATE_NOTE':
-      const list = state.list.map(note => {
-        if (note.id === action.id) {
-          action.note = { ...note, ...action.updates };
-          return action.note;
-        } else {
-          return note;
-        }
-      });
-
       return {
-        list,
+        list: state.list.map(note =>
+          note.id === action.id ? { ...note, ...action.updates } : note
+        ),
         status: 'NOTE_UPDATED',
-        note: action.note
+        note: state.list.find(({ id }) => id === action.id)
+      };
+
+    case 'SWITCH_NOTE_STATUS':
+      return {
+        list: state.list.map(note =>
+          note.id === action.id ? { ...note, status: !note.status } : note
+        ),
+        status: 'STATUS_SWITCHED',
+        note: state.list.find(({ id }) => id === action.id)
       };
 
     case 'REMOVE_NOTE':

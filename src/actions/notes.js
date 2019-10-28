@@ -21,6 +21,11 @@ export const updateNote = (id, updates) => ({
   updates
 });
 
+export const switchNoteStatus = id => ({
+  type: 'SWITCH_NOTE_STATUS',
+  id
+});
+
 export const removeNote = id => ({
   type: 'REMOVE_NOTE',
   id
