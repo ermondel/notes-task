@@ -6,8 +6,19 @@ import configureStore from './store/configureStore';
 import 'semantic-ui-css/semantic.min.css';
 import './style/index.css';
 
+// actions and fixtures
 // import { addNote } from './actions/notes';
 // import notes from './tests/fixtures/notes';
+// import {
+//   setTitleFilter,
+//   sortByStatusAll,
+//   sortByStatusOpen,
+//   sortByStatusDone,
+//   sortByPriorityAll,
+//   sortByPriorityHigh,
+//   sortByPriorityNormal,
+//   sortByPriorityLow
+// } from './actions/filters';
 
 // redux store
 const store = configureStore();
@@ -20,6 +31,14 @@ const store = configureStore();
 // notes.forEach(note => {
 //   store.dispatch(addNote(note));
 // });
+// store.dispatch(setTitleFilter('some title'));
+// store.dispatch(sortByStatusAll());
+// store.dispatch(sortByStatusOpen());
+// store.dispatch(sortByStatusDone());
+// store.dispatch(sortByPriorityAll());
+// store.dispatch(sortByPriorityHigh());
+// store.dispatch(sortByPriorityNormal());
+// store.dispatch(sortByPriorityLow());
 
 // render app
 ReactDOM.render(
