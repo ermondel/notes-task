@@ -6,7 +6,7 @@ export const addNote = (fields = {}) => {
     title,
     description = '',
     priority = 'normal',
-    status = 0,
+    status = true,
     date = Date.now()
   } = fields;
 

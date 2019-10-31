@@ -10,7 +10,7 @@ const icons = {
 };
 
 const NoteListItem = props => (
-  <Card className={props.status ? 'noteDone' : 'noteOpen'}>
+  <Card className={props.status ? 'noteOpen' : 'noteDone'}>
     <Card.Content header={props.title} style={{ flexGrow: 0 }} />
     <Card.Content description={props.description} />
     <Card.Content extra>
@@ -22,8 +22,8 @@ const NoteListItem = props => (
       >
         <Dropdown.Menu>
           <Dropdown.Item
-            icon={props.status ? 'unhide' : 'check'}
-            text={'Mark as ' + (props.status ? 'open' : 'done')}
+            icon={props.status ? 'check' : 'unhide'}
+            text={'Mark as ' + (props.status ? 'done' : 'open')}
             onClick={() => props.switchNoteStatus(props.id)}
           />
           <Dropdown.Item
