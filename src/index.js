@@ -31,7 +31,7 @@ const store = configureStore();
 // notes.forEach(note => {
 //   store.dispatch(addNote(note));
 // });
-// store.dispatch(setTitleFilter('some title'));
+// store.dispatch(setTitleFilter('Title'));
 // store.dispatch(sortByStatusAll());
 // store.dispatch(sortByStatusOpen());
 // store.dispatch(sortByStatusDone());

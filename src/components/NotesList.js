@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NoteListItem from './NoteListItem';
 import { Container, Card } from 'semantic-ui-react';
+import selectNotes from '../selectors/notes';
 
 const NotesList = props =>
   props.notes.length ? (
@@ -17,9 +18,7 @@ const NotesList = props =>
   ) : null;
 
 const mapStateToProps = state => ({
-  notes: state.notes.list.sort((a, b) =>
-    a.date < b.date ? 1 : a.date > b.date ? -1 : 0
-  )
+  notes: selectNotes(state.notes, state.filters)
 });
 
 export default connect(mapStateToProps)(NotesList);
