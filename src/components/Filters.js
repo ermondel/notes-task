@@ -1,33 +1,62 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import {
+  setTitleFilter,
+  sortByStatusAll,
+  sortByStatusOpen,
+  sortByStatusDone,
+  sortByPriorityAll,
+  sortByPriorityHigh,
+  sortByPriorityNormal,
+  sortByPriorityLow
+} from '../actions/filters';
 
 class Filters extends Component {
-  state = {
-    title: '',
-    status: 'all',
-    priority: 'all'
+  handleTitleChange = (event, { value }) => {
+    this.props.setTitleFilter(value);
   };
 
-  handleChange = (event, { name, value }) => this.setState({ [name]: value });
+  handleStatusChange = (event, { value }) => {
+    switch (value) {
+      case 'open':
+        return this.props.sortByStatusOpen();
+      case 'done':
+        return this.props.sortByStatusDone();
+      default:
+        return this.props.sortByStatusAll();
+    }
+  };
+
+  handlePriorityChange = (event, { value }) => {
+    switch (value) {
+      case 'high':
+        return this.props.sortByPriorityHigh();
+      case 'normal':
+        return this.props.sortByPriorityNormal();
+      case 'low':
+        return this.props.sortByPriorityLow();
+      default:
+        return this.props.sortByPriorityAll();
+    }
+  };
 
   render() {
-    const { title, status, priority } = this.state;
-
     return (
       <Form style={{ marginBottom: '50px' }}>
         <Form.Group widths='equal'>
           <Form.Input
             fluid
-            placeholder={'Title'}
+            placeholder={'Search by title'}
             name='title'
-            value={title}
-            onChange={this.handleChange}
+            value={this.props.filters.title}
+            onChange={this.handleTitleChange}
           />
           <Form.Select
             fluid
             name='status'
-            value={status}
-            onChange={this.handleChange}
+            value={this.props.filters.status}
+            onChange={this.handleStatusChange}
             options={[
               { text: 'All', value: 'all' },
               { text: 'Open', value: 'open' },
@@ -37,8 +66,8 @@ class Filters extends Component {
           <Form.Select
             fluid
             name='priority'
-            value={priority}
-            onChange={this.handleChange}
+            value={this.props.filters.priority}
+            onChange={this.handlePriorityChange}
             options={[
               { text: 'All', value: 'all' },
               { text: 'High', value: 'high' },
@@ -52,4 +81,22 @@ class Filters extends Component {
   }
 }
 
-export default Filters;
+const mapStateToProps = state => ({
+  filters: state.filters
+});
+
+const mapDispatchToProps = dispatch => ({
+  setTitleFilter: title => dispatch(setTitleFilter(title)),
+  sortByStatusAll: () => dispatch(sortByStatusAll()),
+  sortByStatusOpen: () => dispatch(sortByStatusOpen()),
+  sortByStatusDone: () => dispatch(sortByStatusDone()),
+  sortByPriorityAll: () => dispatch(sortByPriorityAll()),
+  sortByPriorityHigh: () => dispatch(sortByPriorityHigh()),
+  sortByPriorityNormal: () => dispatch(sortByPriorityNormal()),
+  sortByPriorityLow: () => dispatch(sortByPriorityLow())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Filters);
