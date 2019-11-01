@@ -7,7 +7,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './style/index.scss';
 
 // actions and fixtures
-// import { addNote } from './actions/notes';
+// import { actionAddNote } from './actions/notes';
 // import notes from './tests/fixtures/notes';
 
 // redux store
@@ -18,8 +18,8 @@ const store = configureStore();
 // });
 
 // redux store test
-// notes.forEach(note => {
-//   store.dispatch(addNote(note));
+// notes.forEach((note) => {
+//   store.dispatch(actionAddNote(note));
 // });
 
 // render app
@@ -27,5 +27,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

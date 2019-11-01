@@ -7,6 +7,7 @@ import {
   actionSwitchNoteStatus,
   actionViewNote,
 } from '../actions/notes';
+import shorten from '../utils/util';
 
 const icons = {
   high: { icon: 'alarm', color: 'red' },
@@ -23,13 +24,13 @@ const NoteListItem = ({
 }) => (
   <Card className={note.status ? 'noteOpen' : 'noteDone'}>
     <Card.Content
-      header={note.title}
+      header={shorten(note.title, 30)}
       style={{ flexGrow: 0 }}
       onClick={() => viewNote(note.id)}
       className="clickableCard"
     />
     <Card.Content
-      description={note.description}
+      description={shorten(note.description, 255)}
       onClick={() => viewNote(note.id)}
       className="clickableCard"
     />
