@@ -1,7 +1,7 @@
 const filterReducerDefaultState = {
   title: '',
   status: 'all',
-  priority: 'all'
+  priority: 'all',
 };
 
 export default (state = filterReducerDefaultState, action) => {

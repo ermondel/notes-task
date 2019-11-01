@@ -1,51 +1,58 @@
 import uuid from 'uuid';
 
-export const addNote = (fields = {}) => {
+export const actionAddNote = (fields = {}) => {
   const {
     id = uuid(),
     title,
     description = '',
     priority = 'normal',
     status = true,
-    date = Date.now()
+    date = Date.now(),
   } = fields;
 
   return {
     type: 'ADD_NOTE',
-    note: { id, title, description, priority, status, date }
+    note: {
+      id,
+      title,
+      description,
+      priority,
+      status,
+      date,
+    },
   };
 };
 
-export const updateNote = (id, updates) => ({
+export const actionUpdateNote = (id, updates) => ({
   type: 'UPDATE_NOTE',
   id,
-  updates
+  updates,
 });
 
-export const switchNoteStatus = id => ({
+export const actionSwitchNoteStatus = (id) => ({
   type: 'SWITCH_NOTE_STATUS',
-  id
+  id,
 });
 
-export const removeNote = id => ({
+export const actionRemoveNote = (id) => ({
   type: 'REMOVE_NOTE',
-  id
+  id,
 });
 
-export const createNote = () => ({
-  type: 'CREATE_NOTE'
+export const actionCreateNote = () => ({
+  type: 'CREATE_NOTE',
 });
 
-export const editNote = id => ({
+export const actionEditNote = (id) => ({
   type: 'EDIT_NOTE',
-  id
+  id,
 });
 
-export const closeNote = () => ({
-  type: 'CLOSE_NOTE'
+export const actionCloseNote = () => ({
+  type: 'CLOSE_NOTE',
 });
 
-export const viewNote = id => ({
+export const actionViewNote = (id) => ({
   type: 'VIEW_NOTE',
-  id
+  id,
 });

@@ -2,81 +2,98 @@ import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import {
-  setTitleFilter,
-  sortByStatusAll,
-  sortByStatusOpen,
-  sortByStatusDone,
-  sortByPriorityAll,
-  sortByPriorityHigh,
-  sortByPriorityNormal,
-  sortByPriorityLow
+  actionSetTitleFilter,
+  actionSortByStatusAll,
+  actionSortByStatusOpen,
+  actionSortByStatusDone,
+  actionSortByPriorityAll,
+  actionSortByPriorityHigh,
+  actionSortByPriorityNormal,
+  actionSortByPriorityLow,
 } from '../actions/filters';
 
 class NotesFilters extends Component {
   handleTitleChange = (event, { value }) => {
-    this.props.setTitleFilter(value);
+    const { setTitleFilter } = this.props;
+
+    setTitleFilter(value);
   };
 
   handleStatusChange = (event, { value }) => {
+    const {
+      sortByStatusOpen,
+      sortByStatusDone,
+      sortByStatusAll,
+    } = this.props;
+
     switch (value) {
       case 'open':
-        return this.props.sortByStatusOpen();
+        return sortByStatusOpen();
       case 'done':
-        return this.props.sortByStatusDone();
+        return sortByStatusDone();
       default:
-        return this.props.sortByStatusAll();
+        return sortByStatusAll();
     }
   };
 
   handlePriorityChange = (event, { value }) => {
+    const {
+      sortByPriorityHigh,
+      sortByPriorityNormal,
+      sortByPriorityLow,
+      sortByPriorityAll,
+    } = this.props;
+
     switch (value) {
       case 'high':
-        return this.props.sortByPriorityHigh();
+        return sortByPriorityHigh();
       case 'normal':
-        return this.props.sortByPriorityNormal();
+        return sortByPriorityNormal();
       case 'low':
-        return this.props.sortByPriorityLow();
+        return sortByPriorityLow();
       default:
-        return this.props.sortByPriorityAll();
+        return sortByPriorityAll();
     }
   };
 
   render() {
+    const { filters } = this.props;
+
     return (
-      <Form className='Filters'>
+      <Form className="Filters">
         <Form.Group>
           <Form.Input
-            placeholder={'Search by title'}
-            name='title'
-            value={this.props.filters.title}
+            placeholder="Search by title"
+            name="title"
+            value={filters.title}
             onChange={this.handleTitleChange}
-            icon='search'
-            iconPosition='left'
+            icon="search"
+            iconPosition="left"
             width={7}
-            className='Filter'
+            className="Filter"
           />
           <Form.Select
-            name='status'
-            value={this.props.filters.status}
+            name="status"
+            value={filters.status}
             onChange={this.handleStatusChange}
             options={[
               { text: 'All', value: 'all' },
               { text: 'Open', value: 'open' },
-              { text: 'Done', value: 'done' }
+              { text: 'Done', value: 'done' },
             ]}
-            className='Filter'
+            className="Filter"
           />
           <Form.Select
-            name='priority'
-            value={this.props.filters.priority}
+            name="priority"
+            value={filters.priority}
             onChange={this.handlePriorityChange}
             options={[
               { text: 'All', value: 'all' },
               { text: 'High', value: 'high' },
               { text: 'Normal', value: 'normal' },
-              { text: 'Low', value: 'low' }
+              { text: 'Low', value: 'low' },
             ]}
-            className='Filter'
+            className="Filter"
           />
         </Form.Group>
       </Form>
@@ -84,22 +101,38 @@ class NotesFilters extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  filters: state.filters
+const mapStateToProps = (state) => ({
+  filters: state.filters,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setTitleFilter: title => dispatch(setTitleFilter(title)),
-  sortByStatusAll: () => dispatch(sortByStatusAll()),
-  sortByStatusOpen: () => dispatch(sortByStatusOpen()),
-  sortByStatusDone: () => dispatch(sortByStatusDone()),
-  sortByPriorityAll: () => dispatch(sortByPriorityAll()),
-  sortByPriorityHigh: () => dispatch(sortByPriorityHigh()),
-  sortByPriorityNormal: () => dispatch(sortByPriorityNormal()),
-  sortByPriorityLow: () => dispatch(sortByPriorityLow())
+const mapDispatchToProps = (dispatch) => ({
+  setTitleFilter: (title) => {
+    dispatch(actionSetTitleFilter(title));
+  },
+  sortByStatusAll: () => {
+    dispatch(actionSortByStatusAll());
+  },
+  sortByStatusOpen: () => {
+    dispatch(actionSortByStatusOpen());
+  },
+  sortByStatusDone: () => {
+    dispatch(actionSortByStatusDone());
+  },
+  sortByPriorityAll: () => {
+    dispatch(actionSortByPriorityAll());
+  },
+  sortByPriorityHigh: () => {
+    dispatch(actionSortByPriorityHigh());
+  },
+  sortByPriorityNormal: () => {
+    dispatch(actionSortByPriorityNormal());
+  },
+  sortByPriorityLow: () => {
+    dispatch(actionSortByPriorityLow());
+  },
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(NotesFilters);

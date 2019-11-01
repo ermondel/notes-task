@@ -2,46 +2,61 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ModalForm from './ModalForm';
 import ModalView from './ModalView';
-import { closeNote, addNote, updateNote } from '../actions/notes';
+import {
+  actionCloseNote,
+  actionAddNote,
+  actionUpdateNote,
+} from '../actions/notes';
 
-const ModalHost = props => {
-  if (props.status === 'CREATE_NOTE')
+const ModalHost = ({
+  note,
+  status,
+  modalClose,
+  addNote,
+  updateNote,
+}) => {
+  if (status === 'CREATE_NOTE') {
     return (
       <ModalForm
-        header={'Add new note'}
-        modalClose={props.modalClose}
-        saveNote={note => props.addNote(note)}
+        header="Add new note"
+        modalClose={modalClose}
+        saveNote={(newNote) => addNote(newNote)}
       />
     );
+  }
 
-  if (props.status === 'EDIT_NOTE')
+  if (status === 'EDIT_NOTE') {
     return (
       <ModalForm
-        header={'Edit note'}
-        note={props.note}
-        modalClose={props.modalClose}
-        saveNote={note => props.updateNote(props.note.id, note)}
+        header="Edit note"
+        note={note}
+        modalClose={modalClose}
+        saveNote={(updatedNote) => {
+          updateNote(note.id, updatedNote);
+        }}
       />
     );
+  }
 
-  if (props.status === 'VIEW_NOTE')
-    return <ModalView note={props.note} modalClose={props.modalClose} />;
+  if (status === 'VIEW_NOTE') {
+    return <ModalView note={note} modalClose={modalClose} />;
+  }
 
   return null;
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   status: state.notes.status,
-  note: state.notes.note
+  note: state.notes.note,
 });
 
-const mapDispatchToProps = dispatch => ({
-  modalClose: () => dispatch(closeNote()),
-  addNote: note => dispatch(addNote(note)),
-  updateNote: (id, note) => dispatch(updateNote(id, note))
+const mapDispatchToProps = (dispatch) => ({
+  modalClose: () => dispatch(actionCloseNote()),
+  addNote: (note) => dispatch(actionAddNote(note)),
+  updateNote: (id, note) => dispatch(actionUpdateNote(id, note)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ModalHost);

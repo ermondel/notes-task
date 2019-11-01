@@ -1,29 +1,31 @@
 import React from 'react';
 import { Modal, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { closeNote } from '../actions/notes';
+import { actionCloseNote } from '../actions/notes';
 
-const ModalView = props => (
-  <Modal size={'mini'} open={true}>
+const ModalView = ({ note, modalClose }) => (
+  <Modal size="mini" open>
     <Modal.Header
       style={
-        props.note.status ? {} : { backgroundColor: 'grey', color: 'white' }
+        note.status
+          ? {}
+          : { backgroundColor: 'grey', color: 'white' }
       }
     >
-      {props.note.title}
+      {note.title}
     </Modal.Header>
-    <Modal.Content>{props.note.description}</Modal.Content>
+    <Modal.Content>{note.description}</Modal.Content>
     <Modal.Actions>
-      <Button onClick={props.modalClose}>Close</Button>
+      <Button onClick={modalClose}>Close</Button>
     </Modal.Actions>
   </Modal>
 );
 
-const mapDispatchToProps = dispatch => ({
-  modalClose: () => dispatch(closeNote())
+const mapDispatchToProps = (dispatch) => ({
+  modalClose: () => dispatch(actionCloseNote()),
 });
 
 export default connect(
   undefined,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ModalView);

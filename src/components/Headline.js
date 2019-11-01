@@ -1,25 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Header, Button, Icon } from 'semantic-ui-react';
-import { createNote } from '../actions/notes';
+import {
+  Container,
+  Header,
+  Button,
+  Icon,
+} from 'semantic-ui-react';
+import { actionCreateNote } from '../actions/notes';
 
-const Headline = props => (
+const Headline = ({ createNote }) => (
   <Container>
-    <Header as='h1' floated='left'>
+    <Header as="h1" floated="left">
       TODOList
     </Header>
-    <Button icon labelPosition='right' color='blue' onClick={props.createNote}>
+    <Button
+      icon
+      labelPosition="right"
+      color="blue"
+      onClick={createNote}
+    >
       Add note
-      <Icon name='add' />
+      <Icon name="add" />
     </Button>
   </Container>
 );
 
-const mapDispatchToProps = dispatch => ({
-  createNote: () => dispatch(createNote())
+const mapDispatchToProps = (dispatch) => ({
+  createNote: () => dispatch(actionCreateNote()),
 });
 
 export default connect(
   undefined,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Headline);

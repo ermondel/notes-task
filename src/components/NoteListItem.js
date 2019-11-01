@@ -2,75 +2,81 @@ import React from 'react';
 import { Card, Dropdown, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import {
-  editNote,
-  removeNote,
-  switchNoteStatus,
-  viewNote
+  actionEditNote,
+  actionRemoveNote,
+  actionSwitchNoteStatus,
+  actionViewNote,
 } from '../actions/notes';
 
 const icons = {
   high: { icon: 'alarm', color: 'red' },
   normal: { icon: 'bookmark outline', color: 'blue' },
-  low: { icon: 'circle outline', color: undefined }
+  low: { icon: 'circle outline', color: undefined },
 };
 
-const NoteListItem = props => (
-  <Card className={props.status ? 'noteOpen' : 'noteDone'}>
+const NoteListItem = ({
+  note,
+  viewNote,
+  switchNoteStatus,
+  editNote,
+  removeNote,
+}) => (
+  <Card className={note.status ? 'noteOpen' : 'noteDone'}>
     <Card.Content
-      header={props.title}
+      header={note.title}
       style={{ flexGrow: 0 }}
-      onClick={() => props.viewNote(props.id)}
-      className='clickableCard'
+      onClick={() => viewNote(note.id)}
+      className="clickableCard"
     />
     <Card.Content
-      description={props.description}
-      onClick={() => props.viewNote(props.id)}
-      className='clickableCard'
+      description={note.description}
+      onClick={() => viewNote(note.id)}
+      className="clickableCard"
     />
     <Card.Content extra>
       <Dropdown
-        icon='ellipsis horizontal'
-        direction='left'
-        title='Menu'
+        icon="ellipsis horizontal"
+        direction="left"
+        title="Menu"
         style={{ float: 'right' }}
       >
         <Dropdown.Menu>
           <Dropdown.Item
-            icon={props.status ? 'check' : 'unhide'}
-            text={'Mark as ' + (props.status ? 'done' : 'open')}
-            onClick={() => props.switchNoteStatus(props.id)}
+            icon={note.status ? 'check' : 'unhide'}
+            text={`Mark as ${note.status ? 'done' : 'open'}`}
+            onClick={() => switchNoteStatus(note.id)}
           />
           <Dropdown.Item
-            icon='edit'
-            text='Edit note'
-            onClick={() => props.editNote(props.id)}
+            icon="edit"
+            text="Edit note"
+            onClick={() => editNote(note.id)}
           />
           <Dropdown.Item
-            icon='trash'
-            text='Remove note'
-            onClick={() => props.removeNote(props.id)}
+            icon="trash"
+            text="Remove note"
+            onClick={() => removeNote(note.id)}
           />
         </Dropdown.Menu>
       </Dropdown>
       <div>
         <Icon
-          color={icons[props.priority].color}
-          name={icons[props.priority].icon}
-          title={props.priority + ' priority'}
+          color={icons[note.priority].color}
+          name={icons[note.priority].icon}
+          title={`${note.priority} priority`}
         />
       </div>
     </Card.Content>
   </Card>
 );
 
-const mapDispatchToProps = dispatch => ({
-  editNote: id => dispatch(editNote(id)),
-  removeNote: id => dispatch(removeNote(id)),
-  switchNoteStatus: id => dispatch(switchNoteStatus(id)),
-  viewNote: id => dispatch(viewNote(id))
+const mapDispatchToProps = (dispatch) => ({
+  editNote: (id) => dispatch(actionEditNote(id)),
+  removeNote: (id) => dispatch(actionRemoveNote(id)),
+  switchNoteStatus: (id) => dispatch(actionSwitchNoteStatus(id)),
+  viewNote: (id) => dispatch(actionViewNote(id)),
 });
 
 export default connect(
   undefined,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(NoteListItem);

@@ -1,32 +1,32 @@
-export const setTitleFilter = title => ({
+export const actionSetTitleFilter = (title) => ({
   type: 'SET_TITLE_FILTER',
-  title
+  title,
 });
 
-export const sortByStatusAll = () => ({
-  type: 'SORT_BY_STATUS_ALL'
+export const actionSortByStatusAll = () => ({
+  type: 'SORT_BY_STATUS_ALL',
 });
 
-export const sortByStatusOpen = () => ({
-  type: 'SORT_BY_STATUS_OPEN'
+export const actionSortByStatusOpen = () => ({
+  type: 'SORT_BY_STATUS_OPEN',
 });
 
-export const sortByStatusDone = () => ({
-  type: 'SORT_BY_STATUS_DONE'
+export const actionSortByStatusDone = () => ({
+  type: 'SORT_BY_STATUS_DONE',
 });
 
-export const sortByPriorityAll = () => ({
-  type: 'SORT_BY_PRIORITY_ALL'
+export const actionSortByPriorityAll = () => ({
+  type: 'SORT_BY_PRIORITY_ALL',
 });
 
-export const sortByPriorityHigh = () => ({
-  type: 'SORT_BY_PRIORITY_HIGH'
+export const actionSortByPriorityHigh = () => ({
+  type: 'SORT_BY_PRIORITY_HIGH',
 });
 
-export const sortByPriorityNormal = () => ({
-  type: 'SORT_BY_PRIORITY_NORMAL'
+export const actionSortByPriorityNormal = () => ({
+  type: 'SORT_BY_PRIORITY_NORMAL',
 });
 
-export const sortByPriorityLow = () => ({
-  type: 'SORT_BY_PRIORITY_LOW'
+export const actionSortByPriorityLow = () => ({
+  type: 'SORT_BY_PRIORITY_LOW',
 });

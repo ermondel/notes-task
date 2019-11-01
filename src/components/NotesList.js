@@ -1,27 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import NoteListItem from './NoteListItem';
 import { Container, Card } from 'semantic-ui-react';
-import selectNotes from '../selectors/notes';
+import NoteListItem from './NoteListItem';
 import NotesFilters from './NotesFilters';
+import selectNotes from '../selectors/notes';
 
-const NotesList = props => (
-  <div className='NotesList'>
+const NotesList = ({ showFilters, notes }) => (
+  <div className="NotesList">
     <Container>
-      {props.showFilters && <NotesFilters />}
-      {props.notes.length ? (
+      {showFilters && <NotesFilters />}
+      {notes.length ? (
         <Card.Group>
-          {props.notes.map(note => (
-            <NoteListItem key={note.id} {...note} />
+          {notes.map((note) => (
+            <NoteListItem key={note.id} note={note} />
           ))}
         </Card.Group>
       ) : null}
     </Container>
   </div>
 );
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   notes: selectNotes(state.notes, state.filters),
-  showFilters: state.notes.list.length > 0 ? true : false
+  showFilters: state.notes.list.length > 0,
 });
 
 export default connect(mapStateToProps)(NotesList);
