@@ -1,7 +1,12 @@
 import React from 'react';
 import { Card, Dropdown, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { editNote, removeNote, switchNoteStatus } from '../actions/notes';
+import {
+  editNote,
+  removeNote,
+  switchNoteStatus,
+  viewNote
+} from '../actions/notes';
 
 const icons = {
   high: { icon: 'alarm', color: 'red' },
@@ -11,8 +16,17 @@ const icons = {
 
 const NoteListItem = props => (
   <Card className={props.status ? 'noteOpen' : 'noteDone'}>
-    <Card.Content header={props.title} style={{ flexGrow: 0 }} />
-    <Card.Content description={props.description} />
+    <Card.Content
+      header={props.title}
+      style={{ flexGrow: 0 }}
+      onClick={() => props.viewNote(props.id)}
+      className='clickableCard'
+    />
+    <Card.Content
+      description={props.description}
+      onClick={() => props.viewNote(props.id)}
+      className='clickableCard'
+    />
     <Card.Content extra>
       <Dropdown
         icon='ellipsis horizontal'
@@ -43,7 +57,6 @@ const NoteListItem = props => (
           color={icons[props.priority].color}
           name={icons[props.priority].icon}
           title={props.priority + ' priority'}
-          style={{ cursor: 'help' }}
         />
       </div>
     </Card.Content>
@@ -53,7 +66,8 @@ const NoteListItem = props => (
 const mapDispatchToProps = dispatch => ({
   editNote: id => dispatch(editNote(id)),
   removeNote: id => dispatch(removeNote(id)),
-  switchNoteStatus: id => dispatch(switchNoteStatus(id))
+  switchNoteStatus: id => dispatch(switchNoteStatus(id)),
+  viewNote: id => dispatch(viewNote(id))
 });
 
 export default connect(

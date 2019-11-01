@@ -18,6 +18,10 @@
   margin-bottom: 3vh;
 }
 
+.clickableCard {
+  cursor: pointer;
+}
+
 .ui.cards > .noteDone > .content > .header {
   text-decoration: line-through;
   color: lightgrey;

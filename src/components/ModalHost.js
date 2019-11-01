@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ModalForm from './ModalForm';
+import ModalView from './ModalView';
 import { closeNote, addNote, updateNote } from '../actions/notes';
 
 const ModalHost = props => {
@@ -22,6 +23,9 @@ const ModalHost = props => {
         saveNote={note => props.updateNote(props.note.id, note)}
       />
     );
+
+  if (props.status === 'VIEW_NOTE')
+    return <ModalView note={props.note} modalClose={props.modalClose} />;
 
   return null;
 };

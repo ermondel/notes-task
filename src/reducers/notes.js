@@ -60,6 +60,13 @@ export default (state = notesReducerDefaultState, action) => {
         note: state.note
       };
 
+    case 'VIEW_NOTE':
+      return {
+        list: state.list,
+        status: action.type,
+        note: state.list.find(({ id }) => id === action.id)
+      };
+
     default:
       return state;
   }

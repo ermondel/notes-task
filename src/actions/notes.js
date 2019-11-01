@@ -44,3 +44,8 @@ export const editNote = id => ({
 export const closeNote = () => ({
   type: 'CLOSE_NOTE'
 });
+
+export const viewNote = id => ({
+  type: 'VIEW_NOTE',
+  id
+});
