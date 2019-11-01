@@ -2,8 +2,20 @@
   padding-top: 10px;
 }
 
+.Filters {
+  margin-bottom: 2vh;
+}
+.Filters .Filter {
+  padding-bottom: 2vh;
+}
+
 .NotesList {
-  min-height: 80vmin;
+  min-height: 75vh;
+  margin-bottom: 5vh;
+}
+
+.Footer {
+  margin-bottom: 3vh;
 }
 
 .ui.cards > .noteDone > .content > .header {

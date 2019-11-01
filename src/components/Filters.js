@@ -43,17 +43,19 @@ class Filters extends Component {
 
   render() {
     return (
-      <Form style={{ marginBottom: '50px' }}>
-        <Form.Group widths='equal'>
+      <Form className='Filters'>
+        <Form.Group>
           <Form.Input
-            fluid
             placeholder={'Search by title'}
             name='title'
             value={this.props.filters.title}
             onChange={this.handleTitleChange}
+            icon='search'
+            iconPosition='left'
+            width={7}
+            className='Filter'
           />
           <Form.Select
-            fluid
             name='status'
             value={this.props.filters.status}
             onChange={this.handleStatusChange}
@@ -62,9 +64,9 @@ class Filters extends Component {
               { text: 'Open', value: 'open' },
               { text: 'Done', value: 'done' }
             ]}
+            className='Filter'
           />
           <Form.Select
-            fluid
             name='priority'
             value={this.props.filters.priority}
             onChange={this.handlePriorityChange}
@@ -74,6 +76,7 @@ class Filters extends Component {
               { text: 'Normal', value: 'normal' },
               { text: 'Low', value: 'low' }
             ]}
+            className='Filter'
           />
         </Form.Group>
       </Form>
