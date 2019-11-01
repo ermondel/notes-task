@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import NoteListItem from './NoteListItem';
 import { Container, Card } from 'semantic-ui-react';
 import selectNotes from '../selectors/notes';
-import Filters from './Filters';
+import NotesFilters from './NotesFilters';
 
 const NotesList = props => (
   <div className='NotesList'>
     <Container>
-      <Filters />
+      {props.showFilters && <NotesFilters />}
       {props.notes.length ? (
         <Card.Group>
           {props.notes.map(note => (
@@ -20,7 +20,8 @@ const NotesList = props => (
   </div>
 );
 const mapStateToProps = state => ({
-  notes: selectNotes(state.notes, state.filters)
+  notes: selectNotes(state.notes, state.filters),
+  showFilters: state.notes.list.length > 0 ? true : false
 });
 
 export default connect(mapStateToProps)(NotesList);

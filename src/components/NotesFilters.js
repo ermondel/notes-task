@@ -12,7 +12,7 @@ import {
   sortByPriorityLow
 } from '../actions/filters';
 
-class Filters extends Component {
+class NotesFilters extends Component {
   handleTitleChange = (event, { value }) => {
     this.props.setTitleFilter(value);
   };
@@ -102,4 +102,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Filters);
+)(NotesFilters);
