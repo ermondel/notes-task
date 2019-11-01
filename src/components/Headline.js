@@ -4,7 +4,7 @@ import { Container, Header, Button, Icon } from 'semantic-ui-react';
 import { createNote } from '../actions/notes';
 
 const Headline = props => (
-  <Container style={{ paddingTop: '10px' }}>
+  <Container>
     <Header as='h1' floated='left'>
       TODOList
     </Header>
