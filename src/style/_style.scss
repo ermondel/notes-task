@@ -1,21 +1,21 @@
 .App {
-  padding-top: 10px;
+  padding-top: $app-top;
 }
 
 .Filters {
-  margin-bottom: 2vh;
+  margin-bottom: $filters-bottom;
 }
 .Filters .Filter {
-  padding-bottom: 2vh;
+  padding-bottom: $filter-bottom;
 }
 
 .NotesList {
-  min-height: 75vh;
-  margin-bottom: 5vh;
+  min-height: $noteslist-min-height;
+  margin-bottom: $noteslist-bottom;
 }
 
 .Footer {
-  margin-bottom: 3vh;
+  margin-bottom: $footer-bottom;
 }
 
 .clickableCard {
