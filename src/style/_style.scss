@@ -29,3 +29,16 @@
 .ui.cards > .noteDone > .content > .description {
   color: Silver;
 }
+
+.ui.cards > .noteOpen:hover {
+  background-color: #f4f4f4;
+}
+.ui.cards > .noteDone:hover {
+  background-color: #f4f4f4;
+}
+.ui.cards > .noteDone:hover > .content > .header {
+  color: #646464;
+}
+.ui.cards > .noteDone:hover > .content > .description {
+  color: #646464;
+}
