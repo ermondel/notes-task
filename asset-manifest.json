@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/todo-app-task/static/css/main.d2139c24.chunk.css",
+    "main.js": "/todo-app-task/static/js/main.d462904a.chunk.js",
+    "main.js.map": "/todo-app-task/static/js/main.d462904a.chunk.js.map",
+    "runtime-main.js": "/todo-app-task/static/js/runtime-main.11bf121e.js",
+    "runtime-main.js.map": "/todo-app-task/static/js/runtime-main.11bf121e.js.map",
+    "static/css/2.f6824056.chunk.css": "/todo-app-task/static/css/2.f6824056.chunk.css",
+    "static/js/2.1d652e4e.chunk.js": "/todo-app-task/static/js/2.1d652e4e.chunk.js",
+    "static/js/2.1d652e4e.chunk.js.map": "/todo-app-task/static/js/2.1d652e4e.chunk.js.map",
+    "index.html": "/todo-app-task/index.html",
+    "precache-manifest.1a42597b25808cb2a679431634e6d026.js": "/todo-app-task/precache-manifest.1a42597b25808cb2a679431634e6d026.js",
+    "service-worker.js": "/todo-app-task/service-worker.js",
+    "static/css/2.f6824056.chunk.css.map": "/todo-app-task/static/css/2.f6824056.chunk.css.map",
+    "static/css/main.d2139c24.chunk.css.map": "/todo-app-task/static/css/main.d2139c24.chunk.css.map",
+    "static/media/semantic.min.css": "/todo-app-task/static/media/outline-icons.ef60a4f6.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.11bf121e.js",
+    "static/css/2.f6824056.chunk.css",
+    "static/js/2.1d652e4e.chunk.js",
+    "static/css/main.d2139c24.chunk.css",
+    "static/js/main.d462904a.chunk.js"
+  ]
+}
