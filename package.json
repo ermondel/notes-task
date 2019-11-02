@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "repository": "https://github.com/ermondel/todo-app-task.git",
+  "homepage": "https://ermondel.github.io/todo-app-task",
   "author": "ermondel",
   "license": "CC BY-NC 4.0",
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.13.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -21,7 +23,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/**/*.js"
+    "lint": "eslint ./src/**/*.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
