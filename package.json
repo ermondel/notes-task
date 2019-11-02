@@ -1,7 +1,10 @@
 {
   "name": "notes-task",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "repository": "https://github.com/ermondel/notes-task.git",
+  "author": "ermondel",
+  "license": "CC BY-NC 4.0",
   "dependencies": {
     "node-sass": "^4.13.0",
     "react": "^16.10.2",

@@ -17,6 +17,12 @@
 .Footer {
   margin-bottom: $footer-bottom;
 }
+.Footer a.author {
+  color: silver;
+}
+.Footer a.author:hover {
+  color: #2185d0;
+}
 
 .clickableCard {
   cursor: pointer;
