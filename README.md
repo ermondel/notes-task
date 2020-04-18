@@ -2,9 +2,12 @@
 
 _Ciklum University: JS Band Internship task_
 
-### Demo
+### About
 
-[Demo](https://ermondel.github.io/todo-app-task/)
+To-do list app.
+
+[Demo](https://ermondel.github.io/todo-app-task/)  
+[![Task](https://github.com/ermondel/wiki/blob/master/screens/task-todo-app.png)](https://ermondel.github.io/todo-app-task/)
 
 ### Features
 
