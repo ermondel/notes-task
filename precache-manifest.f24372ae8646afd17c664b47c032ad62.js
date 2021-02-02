@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0269d37bf11728755c8f3b57891d9946",
+    "revision": "433e05dab78549127c87ddd4c15432bd",
     "url": "/todo-app-task/index.html"
   },
   {
-    "revision": "222c4451bef4ab7938a6",
-    "url": "/todo-app-task/static/css/2.f6824056.chunk.css"
+    "revision": "e210a970f8bfb504a974",
+    "url": "/todo-app-task/static/css/2.abb5e8cb.chunk.css"
   },
   {
-    "revision": "96d29d947bdc7bd6e06c",
-    "url": "/todo-app-task/static/css/main.d2139c24.chunk.css"
+    "revision": "db518f25befd1b2e0764",
+    "url": "/todo-app-task/static/css/main.8411d0b0.chunk.css"
   },
   {
-    "revision": "222c4451bef4ab7938a6",
-    "url": "/todo-app-task/static/js/2.1d652e4e.chunk.js"
+    "revision": "e210a970f8bfb504a974",
+    "url": "/todo-app-task/static/js/2.3e923b59.chunk.js"
   },
   {
-    "revision": "96d29d947bdc7bd6e06c",
-    "url": "/todo-app-task/static/js/main.d462904a.chunk.js"
+    "revision": "9f81f95fdf77198dcf92d14b566e110e",
+    "url": "/todo-app-task/static/js/2.3e923b59.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bf0b5adf3c86319105d1",
-    "url": "/todo-app-task/static/js/runtime-main.11bf121e.js"
+    "revision": "db518f25befd1b2e0764",
+    "url": "/todo-app-task/static/js/main.e18864c9.chunk.js"
+  },
+  {
+    "revision": "017969d67cbacea36093",
+    "url": "/todo-app-task/static/js/runtime-main.30c8fc29.js"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
