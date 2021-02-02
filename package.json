@@ -1,23 +1,11 @@
 {
   "name": "todo-app-task",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "repository": "https://github.com/ermondel/todo-app-task.git",
   "homepage": "https://ermondel.github.io/todo-app-task",
   "author": "ermondel",
   "license": "CC BY-NC 4.0",
-  "dependencies": {
-    "gh-pages": "^2.1.1",
-    "node-sass": "^4.13.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-redux": "^7.1.1",
-    "react-scripts": "3.2.0",
-    "redux": "^4.0.4",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.1",
-    "uuid": "^3.3.3"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -26,9 +14,6 @@
     "lint": "eslint ./src/**/*.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -42,11 +27,26 @@
       "last 1 safari version"
     ]
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "uuid": "^3.4.0"
+  },
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0"
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "gh-pages": "^2.2.0",
+    "node-sass": "^4.14.1",
+    "react-scripts": "3.4.4"
   }
 }
