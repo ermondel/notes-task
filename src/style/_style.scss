@@ -1,5 +1,6 @@
 .App {
   padding-top: $app-top;
+  padding-bottom: $app-bottom;
 }
 
 .Filters {
@@ -15,13 +16,17 @@
 }
 
 .Footer {
-  margin-bottom: $footer-bottom;
+  color: silver;
 }
 .Footer a.author {
   color: silver;
 }
 .Footer a.author:hover {
   color: #2185d0;
+  text-decoration: underline;
+}
+.Footer .years {
+  font-size: 88%;
 }
 
 .clickableCard {
