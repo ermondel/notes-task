@@ -44,6 +44,6 @@ npm run lint
 
 ### Technologies
 
-- React
-- Redux
-- Semantic UI
+- [React](https://reactjs.org)
+- [Redux](https://redux.js.org)
+- [Semantic UI](https://semantic-ui.com)
